@@ -157,8 +157,12 @@ def callback():
 def handle_message(event):
     message = text=event.message.text
 
-    if re.search('你好', message):
-        line_bot_api.reply_message(UserID, TextSendMessage(text='你好啊~'))
+    if re.search('哈囉', message):
+        sticker_message = StickerSendMessage(
+            package_id='6362',
+            sticker_id='11087925'
+        )
+        line_bot_api.reply_message(event.reply_token, sticker_message)
 
     elif re.search('小提示', message):
         line_bot_api.reply_message(UserID, TextSendMessage(text='test'))
