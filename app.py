@@ -26,7 +26,7 @@ line_bot_api = LineBotApi(ChannelAccessToken)
 # Channel Secret
 handler = WebhookHandler(ChannelSecret)
 
-line_bot_api.push_message(UserID, TextSendMessage(text='你可以開始了'))
+# line_bot_api.push_message(UserID, TextSendMessage(text='你可以開始了'))
 
 # start_message = FlexSendMessage(
 #     alt_text='Hi, 我是林祐丞 Leo',
@@ -188,9 +188,9 @@ def handle_message(event):
     elif re.search('謝謝', message):
         line_bot_api.reply_message(event.reply_token, TextSendMessage("不客氣，下次再聊天哦!"))
 
-    elif re.search('開始', message):
-        introduce_message = "我是林祐丞"
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(introduce_message))
+    # elif re.search('開始', message):
+    #     introduce_message = "我是林祐丞"
+    #     line_bot_api.reply_message(event.reply_token, TextSendMessage(introduce_message))
 
     elif re.search('介紹', message):
         flex_message = FlexSendMessage(
