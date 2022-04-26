@@ -1,3 +1,4 @@
+from errno import ELIBBAD
 import os
 import re
 import json
@@ -154,7 +155,13 @@ def callback():
 def handle_message(event):
     message = text=event.message.text
 
-    if re.match('掰掰',message):
+    if re.search('你好', message):
+        line_bot_api.reply_message(UserID, TextSendMessage(text='你好啊~'))
+
+    elif re.search('小提示', message):
+        line_bot_api.reply_message(UserID, TextSendMessage(text='test'))
+
+    elif re.search('掰掰',message):
         # byeMessage = [
         #     {
         #         "type": "text",
@@ -166,7 +173,6 @@ def handle_message(event):
         #         "sticker_id": "51626533"  
         #     }   
         # ]
-        line_bot_api.push_message(UserID, TextSendMessage(text='掰掰~'))
         sticker_message = StickerSendMessage(
             package_id='11538',
             sticker_id='51626533'
