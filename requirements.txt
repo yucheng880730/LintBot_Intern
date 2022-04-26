@@ -1,0 +1,11 @@
+line-bot-sdk
+flask
+bs4
+pymongo
+datetime
+pandas
+SnowNLP
+emoji
+pyshorteners
+scipy
+python-dotenv
