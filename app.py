@@ -132,7 +132,7 @@ start_message = FlexSendMessage(
         }
     )
 
-line_bot_api.push_message(UserID, start_message)
+line_bot_api.push_message(UserID, TextSendMessage(start_message))
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
