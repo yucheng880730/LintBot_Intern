@@ -26,114 +26,116 @@ line_bot_api = LineBotApi(ChannelAccessToken)
 # Channel Secret
 handler = WebhookHandler(ChannelSecret)
 
-start_message = FlexSendMessage(
-    alt_text='Hi, 我是林祐丞 Leo',
-    contents={
-        "type": "bubble",
-        "body": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-            {
-                "type": "text",
-                "text": "小提示!!",
-                "weight": "bold",
-                "size": "xxl",
-                "margin": "md"
-            },
-            {
-                "type": "text",
-                "text": "Line Bot 機器人小提示~",
-                "size": "xs",
-                "color": "#aaaaaa",
-                "wrap": True
-            },
-            {
-                "type": "text",
-                "text": "試著輸入下列提示吧!",
-                "size": "xs",
-                "color": "#aaaaaa",
-                "wrap": True
-            },
-            {
-                "type": "separator",
-                "margin": "xxl"
-            },
-            {
-                "type": "box",
-                "layout": "vertical",
-                "margin": "xxl",
-                "spacing": "sm",
-                "contents": [
-                {
-                    "type": "box",
-                    "layout": "horizontal",
-                    "contents": [
-                    {
-                        "type": "text",
-                        "text": "\"開始\"",
-                        "size": "sm",
-                        "color": "#555555",
-                        "flex": 0
-                    }
-                    ]
-                },
-                {
-                    "type": "box",
-                    "layout": "horizontal",
-                    "contents": [
-                    {
-                        "type": "text",
-                        "text": "\"介紹\"",
-                        "size": "sm",
-                        "color": "#555555",
-                        "flex": 0
-                    }
-                    ]
-                },
-                {
-                    "type": "box",
-                    "layout": "horizontal",
-                    "contents": [
-                    {
-                        "type": "text",
-                        "text": "\"更多\"",
-                        "size": "sm",
-                        "color": "#555555",
-                        "flex": 0
-                    }
-                    ]
-                },
-                {
-                    "type": "separator",
-                    "margin": "xxl"
-                },
-                {
-                    "type": "box",
-                    "layout": "horizontal",
-                    "margin": "xxl",
-                    "contents": [
-                    {
-                        "type": "text",
-                        "text": "肚子好\"餓\"",
-                        "size": "sm",
-                        "color": "#555555"
-                    }
-                    ]
-                }
-                ]
-            }
-            ]
-        },
-        "styles": {
-            "footer": {
-            "separator": True
-            }
-        }
-        }
-    )
+line_bot_api.push_message(UserID, TextSendMessage(text='你可以開始了'))
 
-line_bot_api.push_message(UserID, TextSendMessage(start_message))
+# start_message = FlexSendMessage(
+#     alt_text='Hi, 我是林祐丞 Leo',
+#     contents={
+#         "type": "bubble",
+#         "body": {
+#             "type": "box",
+#             "layout": "vertical",
+#             "contents": [
+#             {
+#                 "type": "text",
+#                 "text": "小提示!!",
+#                 "weight": "bold",
+#                 "size": "xxl",
+#                 "margin": "md"
+#             },
+#             {
+#                 "type": "text",
+#                 "text": "Line Bot 機器人小提示~",
+#                 "size": "xs",
+#                 "color": "#aaaaaa",
+#                 "wrap": True
+#             },
+#             {
+#                 "type": "text",
+#                 "text": "試著輸入下列提示吧!",
+#                 "size": "xs",
+#                 "color": "#aaaaaa",
+#                 "wrap": True
+#             },
+#             {
+#                 "type": "separator",
+#                 "margin": "xxl"
+#             },
+#             {
+#                 "type": "box",
+#                 "layout": "vertical",
+#                 "margin": "xxl",
+#                 "spacing": "sm",
+#                 "contents": [
+#                 {
+#                     "type": "box",
+#                     "layout": "horizontal",
+#                     "contents": [
+#                     {
+#                         "type": "text",
+#                         "text": "\"開始\"",
+#                         "size": "sm",
+#                         "color": "#555555",
+#                         "flex": 0
+#                     }
+#                     ]
+#                 },
+#                 {
+#                     "type": "box",
+#                     "layout": "horizontal",
+#                     "contents": [
+#                     {
+#                         "type": "text",
+#                         "text": "\"介紹\"",
+#                         "size": "sm",
+#                         "color": "#555555",
+#                         "flex": 0
+#                     }
+#                     ]
+#                 },
+#                 {
+#                     "type": "box",
+#                     "layout": "horizontal",
+#                     "contents": [
+#                     {
+#                         "type": "text",
+#                         "text": "\"更多\"",
+#                         "size": "sm",
+#                         "color": "#555555",
+#                         "flex": 0
+#                     }
+#                     ]
+#                 },
+#                 {
+#                     "type": "separator",
+#                     "margin": "xxl"
+#                 },
+#                 {
+#                     "type": "box",
+#                     "layout": "horizontal",
+#                     "margin": "xxl",
+#                     "contents": [
+#                     {
+#                         "type": "text",
+#                         "text": "肚子好\"餓\"",
+#                         "size": "sm",
+#                         "color": "#555555"
+#                     }
+#                     ]
+#                 }
+#                 ]
+#             }
+#             ]
+#         },
+#         "styles": {
+#             "footer": {
+#             "separator": True
+#             }
+#         }
+#         }
+#     )
+
+# line_bot_api.push_message(UserID, TextSendMessage(start_message))
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
